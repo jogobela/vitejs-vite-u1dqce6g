@@ -6,18 +6,14 @@ import { getDatabase, ref, onValue, set, remove } from "firebase/database";
    1. PASTE YOUR CONFIG HERE
 ═══════════════════════════════════════════════════ */
 const firebaseConfig = {
-  apiKey: "AIzaSyAKLiypuCB0CgGbXtr8E_pbe8YCR59Bqlw",
-
+  apiKey: "AIzaSyAKLiypuCB0cGgXlr8t_pbe8YCR59Bqlw",
   authDomain: "eurovision-scoreboard-35d3b.firebaseapp.com",
-
   projectId: "eurovision-scoreboard-35d3b",
-
   storageBucket: "eurovision-scoreboard-35d3b.firebasestorage.app",
-
   messagingSenderId: "994077423968",
-
-  appId: "1:994077423968:web:72e9248e3637671c9f8605"
-
+  appId: "1:994077423968:web:72e9248e3637671c9f8605",
+  // THIS LINE BELOW IS CRITICAL:
+  databaseURL: "https://eurovision-scoreboard-35d3b-default-rtdb.europe-west1.firebasedatabase.app"
 };
 
 // Initialize Firebase
