@@ -112,6 +112,20 @@ const FINAL = [
    EUROVISION ASIA — NATIONAL FINALS
    isArtist:true marks participant objects so
    components know to display name/song differently.
+   Updated schedule (Aug–Nov 2026):
+   - Bhutan: 11 Aug (unchanged, already voted)
+   - Philippines: 30 Aug — full lineup added
+   - South Korea: 4 Sep
+   - Nepal: 19 Sep
+   - Laos: 23–24 Sep
+   - Thailand: 27 Sep
+   - Bangladesh: 30 Sep
+   - Vietnam: 3 Oct
+   - Mongolia: 10 Oct (new)
+   - Malaysia: no national final — artist Aina Abdul
+     already internally selected, song not yet released
+   - Cambodia: TBA
+   - 14 Nov: The 1st Eurovision Song Contest Asia (grand final)
 ══════════════════════════════════════════════════ */
 const ASIA_NATIONALS = [
   {
@@ -126,15 +140,32 @@ const ASIA_NATIONALS = [
       { code:'baeyul',  name:'Baeyul301',              song:'Drenpa',              subtitle:'The Memories', colors:['#14532D','#86EFAC'], isArtist:true },
     ],
   },
-  { id:'cambodia',    name:'Cambodia',    show:'TBA',                         date:'TBA',                  flag:'🇰🇭', colors:['#032EA1','#E00025'], participants:[] },
-  { id:'laos',        name:'Laos',        show:'Sieng Lao: The One',         date:'23–24 Sep 2026',        flag:'🇱🇦', colors:['#CE1126','#003DA5'], participants:[] },
-  { id:'malaysia',    name:'Malaysia',    show:'TBA',                         date:'15 Aug 2026',           flag:'🇲🇾', colors:['#CC0001','#003DA5'], participants:[] },
-  { id:'nepal',       name:'Nepal',       show:'Nepal Decides',               date:'19 Sep 2026',           flag:'🇳🇵', colors:['#003893','#DC143C'], participants:[] },
-  { id:'philippines', name:'Philippines', show:'Philippine Selection Night',  date:'30 Aug 2026',           flag:'🇵🇭', colors:['#0038A8','#CE1126'], participants:[] },
-  { id:'southkorea',  name:'South Korea', show:"Korea's Next Wave",           date:'4 Sep 2026',            flag:'🇰🇷', colors:['#CD2E3A','#003478'], participants:[] },
-  { id:'thailand',    name:'Thailand',    show:"Thailand's Chosen One",       date:'27 Sep 2026',           flag:'🇹🇭', colors:['#A51931','#002868'], participants:[] },
-  { id:'bangladesh',  name:'Bangladesh',  show:'Voice of Bangladesh',         date:'30 Sep 2026',           flag:'🇧🇩', colors:['#006A4E','#F42A41'], participants:[] },
-  { id:'vietnam',     name:'Vietnam',     show:'TBA',                         date:'TBA',                   flag:'🇻🇳', colors:['#DA251D','#FFCD00'], participants:[] },
+  {
+    id: 'philippines', name: 'Philippines', show: 'Philippine Selection Night',
+    date: '30 August 2026', flag: '🇵🇭',
+    colors: ['#0038A8','#CE1126'],
+    participants: [
+      { code:'dna',          name:'DNA',                                                     song:'Between Bituin',        colors:['#0038A8','#93C5FD'], isArtist:true },
+      { code:'saga',         name:'SAGA',                                                     song:'Broken Beyond Repair',  colors:['#7F1D1D','#FCA5A5'], isArtist:true },
+      { code:'cherie',       name:'Elha Nympha, Esang de Torres, Lance Reblando & Nar Cabico', song:"Cheri(e)",             colors:['#CE1126','#FCD34D'], isArtist:true },
+      { code:'diyan',        name:'Jason Dy & Sassa Dagdag',                                   song:'Di Yan (Red Flag)',    colors:['#B91C1C','#111111'], isArtist:true },
+      { code:'goodforyou',   name:'Ryssi Avila',                                               song:'Good For You',         colors:['#FBBF24','#92400E'], isArtist:true },
+      { code:'makeitexist',  name:'AJAA',                                                      song:'Make It Exist',        colors:['#4C1D95','#C4B5FD'], isArtist:true },
+      { code:'mapadama',     name:'JM dela Cerna & Marielle Montellano',                       song:'Mapadama',             colors:['#0F766E','#5EEAD4'], isArtist:true },
+      { code:'reasontolive', name:'KHIMO',                                                     song:'Reason to Live',       colors:['#1E3A5F','#93C5FD'], isArtist:true },
+      { code:'roundnround',  name:"VVINK & WRIVE Russu",                                       song:"Round N' Round",       colors:['#DA251D','#FFCD00'], isArtist:true },
+      { code:'sobrasobra',   name:'CARMELLE',                                                  song:'Sobra-Sobra',          colors:['#EC4899','#FBCFE8'], isArtist:true },
+    ],
+  },
+  { id:'southkorea',  name:'South Korea', show:"Korea's Next Wave",           date:'4 September 2026',        flag:'🇰🇷', colors:['#CD2E3A','#003478'], participants:[] },
+  { id:'nepal',       name:'Nepal',       show:'Nepal Decides',               date:'19 September 2026',       flag:'🇳🇵', colors:['#003893','#DC143C'], participants:[] },
+  { id:'laos',        name:'Laos',        show:'Sieng Lao: The One',         date:'23–24 September 2026',     flag:'🇱🇦', colors:['#CE1126','#003DA5'], participants:[] },
+  { id:'thailand',    name:'Thailand',    show:"Thailand's Chosen One",       date:'27 September 2026',       flag:'🇹🇭', colors:['#A51931','#002868'], participants:[] },
+  { id:'bangladesh',  name:'Bangladesh',  show:'Voice of Bangladesh',         date:'30 September 2026',       flag:'🇧🇩', colors:['#006A4E','#F42A41'], participants:[] },
+  { id:'vietnam',     name:'Vietnam',     show:'TBA',                         date:'3 October 2026',          flag:'🇻🇳', colors:['#DA251D','#FFCD00'], participants:[] },
+  { id:'mongolia',    name:'Mongolia',    show:'TBA',                         date:'10 October 2026',         flag:'🇲🇳', colors:['#C4272F','#015197'], participants:[] },
+  { id:'malaysia',    name:'Malaysia',    show:'No national final — Aina Abdul internally selected (song TBA)', date:'—', flag:'🇲🇾', colors:['#CC0001','#003DA5'], participants:[] },
+  { id:'cambodia',    name:'Cambodia',    show:'TBA',                         date:'TBA',                     flag:'🇰🇭', colors:['#032EA1','#E00025'], participants:[] },
 ];
 
 /* ══════════════════════════════════════════════════
@@ -471,8 +502,8 @@ function HomePage({ onSelect, onSelectAsia }) {
               <span style={{ fontSize:32 }}>🌏</span>
               <div>
                 <div style={{ fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:900, color:'#6EE7B7', letterSpacing:1 }}>EUROVISION ASIA</div>
-                <div style={{ fontSize:11, color:'rgba(110,231,183,.75)', marginTop:3, fontWeight:600 }}>10 National Finals · Aug – Oct 2026</div>
-                <div style={{ fontSize:10, color:'rgba(255,255,255,.55)', marginTop:2 }}>Bhutan · Cambodia · Laos · Malaysia · Nepal · Philippines · South Korea · Thailand · Bangladesh · Vietnam</div>
+                <div style={{ fontSize:11, color:'rgba(110,231,183,.75)', marginTop:3, fontWeight:600 }}>10 National Finals · Aug – Nov 2026</div>
+                <div style={{ fontSize:10, color:'rgba(255,255,255,.55)', marginTop:2 }}>Bhutan · Philippines · South Korea · Nepal · Laos · Thailand · Bangladesh · Vietnam · Mongolia · Malaysia · Cambodia</div>
               </div>
             </div>
           </button>
@@ -537,7 +568,7 @@ function AsiaHomePage({ onSelect, onBack }) {
                     <div style={{ fontSize:14, fontWeight:800, color:'#fff', textShadow: hasArtists ? '0 1px 4px rgba(0,0,0,.4)' : 'none' }}>{nat.name}</div>
                     <div style={{ fontSize:10, marginTop:2, color: hasArtists ? 'rgba(255,255,255,.8)' : '#6b5fa0', fontWeight:600 }}>
                       {nat.show !== 'TBA' ? nat.show : 'Show TBA'}
-                      {nat.date !== 'TBA' ? ` · ${nat.date}` : ' · Date TBA'}
+                      {nat.date !== 'TBA' && nat.date !== '—' ? ` · ${nat.date}` : nat.date === 'TBA' ? ' · Date TBA' : ''}
                     </div>
                   </div>
                   <div style={{ fontSize:11, fontWeight:700, color: hasArtists ? 'rgba(255,255,255,.85)' : '#6b5fa0', flexShrink:0 }}>
@@ -722,7 +753,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
           <div style={{ height:118, background:makeGradient(c.colors), display:'flex', alignItems:'center', justifyContent:'center', position:'relative', padding: isArt ? '12px 20px' : 0 }}>
             {isArt ? (
               <div style={{ textAlign:'center' }}>
-                <div style={{ fontFamily:"'Cinzel',serif", fontSize:'clamp(16px,4vw,22px)', fontWeight:900, color:'#fff', textShadow:'0 2px 12px rgba(0,0,0,.6)', lineHeight:1.3 }}>
+                <div style={{ fontFamily:"'Cinzel',serif", fontSize:'clamp(15px,3.6vw,22px)', fontWeight:900, color:'#fff', textShadow:'0 2px 12px rgba(0,0,0,.6)', lineHeight:1.3 }}>
                   {c.name}
                 </div>
               </div>
