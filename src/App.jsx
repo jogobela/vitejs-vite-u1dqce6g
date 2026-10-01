@@ -336,20 +336,20 @@ function injectStyles() {
   if (document.getElementById('esc26')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap';
+  link.href = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap';
   document.head.appendChild(link);
   const s = document.createElement('style');
   s.id = 'esc26';
   s.textContent = `
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: #050118; }
+    html, body { margin: 0; padding: 0; background: #1E1620; }
     @keyframes fadeIn  { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:translateY(0) } }
     @keyframes shimmer { 0%,100% { opacity:.2 } 50% { opacity:.65 } }
-    @keyframes glow    { 0%,100% { box-shadow:0 0 6px #FFD70055 } 50% { box-shadow:0 0 22px #FFD700aa } }
+    @keyframes glow    { 0%,100% { box-shadow:0 0 6px #C1C76B55 } 50% { box-shadow:0 0 22px #C1C76Baa } }
     @keyframes spin    { to { transform: rotate(360deg) } }
     @keyframes toast   { from { transform:translateX(120%) } to { transform:translateX(0) } }
     .fcrd { cursor:pointer; transition: transform .18s, box-shadow .18s; }
-    .fcrd:hover { transform:translateY(-6px) scale(1.07); box-shadow:0 10px 28px rgba(93,63,211,.6); }
+    .fcrd:hover { transform:translateY(-6px) scale(1.07); box-shadow:0 10px 28px rgba(205,91,118,.6); }
     .scbtn {
       cursor: pointer !important; border: none;
       display: inline-flex; align-items: center; justify-content: center;
@@ -364,7 +364,7 @@ function injectStyles() {
     .ebtn:hover  { filter: brightness(1.13); transform: translateY(-2px); }
     .ebtn:active { transform: scale(.97); }
     .trow:hover td { background: rgba(255,255,255,.03) !important; }
-    select option  { background: #1a0a40; }
+    select option  { background: #241A22; }
   `;
   document.head.appendChild(s);
 }
@@ -373,7 +373,7 @@ function injectStyles() {
    UI ATOMS
 ══════════════════════════════════════════════════ */
 const Wrap = ({ children }) => (
-  <div style={{ minHeight:'100vh', background:'linear-gradient(135deg,#050118 0%,#0a0230 45%,#110040 100%)', fontFamily:"'Nunito',sans-serif", color:'#fff', overflowX:'hidden' }}>
+  <div style={{ minHeight:'100vh', background:'linear-gradient(135deg,#1E1620 0%,#332530 45%,#473846 100%)', fontFamily:"'Nunito',sans-serif", color:'#fff', overflowX:'hidden' }}>
     {children}
   </div>
 );
@@ -385,13 +385,13 @@ const Page = ({ children, wide }) => (
 );
 
 const GoldTitle = ({ children }) => (
-  <div style={{ fontFamily:"'Cinzel',serif", fontSize:'clamp(17px,4.5vw,26px)', fontWeight:900, background:'linear-gradient(135deg,#FFD700,#FFA500,#FFD700)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', textAlign:'center', marginBottom:6 }}>
+  <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:'clamp(17px,4.5vw,26px)', fontWeight:900, background:'linear-gradient(135deg,#C1C76B,#8F9450,#C1C76B)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', textAlign:'center', marginBottom:6 }}>
     {children}
   </div>
 );
 
 const Divider = () => (
-  <div style={{ height:1, background:'linear-gradient(90deg,transparent,#5d3fd3,#FFD700,#5d3fd3,transparent)', margin:'12px 0' }} />
+  <div style={{ height:1, background:'linear-gradient(90deg,transparent,#CD5B76,#C1C76B,#CD5B76,transparent)', margin:'12px 0' }} />
 );
 
 const Card = ({ children, style = {} }) => (
@@ -408,8 +408,8 @@ function Btn({ children, onClick, gold, small, danger, disabled, style = {} }) {
       borderRadius:12, fontSize: small ? 13 : 16, fontWeight:800,
       fontFamily:"'Nunito',sans-serif", letterSpacing:.4,
       marginBottom: small ? 0 : 10, opacity: disabled ? .4 : 1,
-      background: disabled ? '#1e1040' : danger ? 'linear-gradient(135deg,#7f1d1d,#dc2626)' : gold ? 'linear-gradient(135deg,#b8860b,#FFD700,#daa520)' : 'linear-gradient(135deg,#5d3fd3,#8b5cf6)',
-      color: gold && !disabled ? '#1a0a00' : '#fff',
+      background: disabled ? '#332530' : danger ? 'linear-gradient(135deg,#7f1d1d,#dc2626)' : gold ? 'linear-gradient(135deg,#7D8341,#C1C76B,#A9AF5E)' : 'linear-gradient(135deg,#CD5B76,#DB889C)',
+      color: gold && !disabled ? '#2A1D22' : '#fff',
       ...style,
     }}>
       {children}
@@ -419,7 +419,7 @@ function Btn({ children, onClick, gold, small, danger, disabled, style = {} }) {
 
 function BackBtn({ onClick, label = '← Back' }) {
   return (
-    <button type="button" className="ebtn" onClick={onClick} style={{ background:'none', border:'1px solid rgba(255,255,255,.2)', color:'#9b8fc0', borderRadius:8, padding:'5px 12px', fontSize:12, fontFamily:"'Nunito',sans-serif" }}>
+    <button type="button" className="ebtn" onClick={onClick} style={{ background:'none', border:'1px solid rgba(255,255,255,.2)', color:'#C9A8B2', borderRadius:8, padding:'5px 12px', fontSize:12, fontFamily:"'Nunito',sans-serif" }}>
       {label}
     </button>
   );
@@ -517,8 +517,8 @@ export default function App() {
   if (!connected) return (
     <Wrap>
       <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'100vh', gap:20 }}>
-        <div style={{ width:44, height:44, border:'3px solid rgba(255,215,0,.2)', borderTopColor:'#FFD700', borderRadius:'50%', animation:'spin 1s linear infinite' }} />
-        <div style={{ color:'#9b8fc0', fontSize:13, letterSpacing:3 }}>CONNECTING TO DATABASE…</div>
+        <div style={{ width:44, height:44, border:'3px solid rgba(193,199,107,.2)', borderTopColor:'#C1C76B', borderRadius:'50%', animation:'spin 1s linear infinite' }} />
+        <div style={{ color:'#C9A8B2', fontSize:13, letterSpacing:3 }}>CONNECTING TO DATABASE…</div>
       </div>
     </Wrap>
   );
@@ -546,15 +546,15 @@ function HomePage({ onSelect, onSelectAsia }) {
           <div style={{ textAlign:'center', paddingTop:36, paddingBottom:8 }}>
             <div style={{ fontSize:52, lineHeight:1 }}>🎵</div>
             <div style={{ marginTop:12 }}><GoldTitle>EUROVISION SCOREBOARD</GoldTitle></div>
-            <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, color:'#c4a8ff', letterSpacing:4, marginTop:4 }}>VIENNA 2026 · ASIA 2026</div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:11, color:'#DB889C', letterSpacing:4, marginTop:4 }}>VIENNA 2026 · ASIA 2026</div>
           </div>
           <Divider />
-          <div style={{ textAlign:'center', fontSize:12, color:'#9b8fc0', letterSpacing:2, textTransform:'uppercase', margin:'22px 0 14px' }}>
+          <div style={{ textAlign:'center', fontSize:12, color:'#C9A8B2', letterSpacing:2, textTransform:'uppercase', margin:'22px 0 14px' }}>
             Select Event
           </div>
 
           {/* Grand Final — most prominent */}
-          <Btn gold onClick={() => onSelect(3)} style={{ padding:20, fontSize:18, borderRadius:16, marginBottom:12, border:'2px solid rgba(255,215,0,.4)', boxShadow:'0 0 24px rgba(255,215,0,.18)' }}>
+          <Btn gold onClick={() => onSelect(3)} style={{ padding:20, fontSize:18, borderRadius:16, marginBottom:12, border:'2px solid rgba(193,199,107,.4)', boxShadow:'0 0 24px rgba(193,199,107,.18)' }}>
             ⭐ GRAND FINAL — May 17
             <div style={{ fontSize:10, fontWeight:600, marginTop:5, opacity:.8 }}>
               25 countries · Denmark · Germany · Israel · Belgium · Albania · Greece · Ukraine · Australia · Serbia · Malta · Czechia · Bulgaria · Croatia · United Kingdom · France · Moldova · Finland · Poland · Lithuania · Sweden · Cyprus · Italy · Norway · Romania · Austria
@@ -572,27 +572,27 @@ function HomePage({ onSelect, onSelectAsia }) {
           </Btn>
 
           {/* Divider between Eurovision and Eurovision Asia */}
-          <div style={{ height:1, background:'linear-gradient(90deg,transparent,rgba(0,180,120,.5),rgba(0,180,120,.5),transparent)', margin:'4px 0 16px' }} />
+          <div style={{ height:1, background:'linear-gradient(90deg,transparent,rgba(205,91,118,.5),rgba(205,91,118,.5),transparent)', margin:'4px 0 16px' }} />
 
           {/* Eurovision Asia */}
           <button type="button" className="ebtn" onClick={onSelectAsia} style={{
             display:'block', width:'100%', padding:20, borderRadius:16, marginBottom:10, border:'none',
-            background:'linear-gradient(135deg,#064e3b,#065f46,#047857)',
+            background:'linear-gradient(135deg,#473846,#5C2836,#8B3A4E)',
             fontFamily:"'Nunito',sans-serif", cursor:'pointer', textAlign:'left',
-            boxShadow:'0 0 20px rgba(4,120,87,.3)',
+            boxShadow:'0 0 20px rgba(139,58,78,.3)',
           }}>
             <div style={{ display:'flex', alignItems:'center', gap:12 }}>
               <span style={{ fontSize:32 }}>🌏</span>
               <div>
-                <div style={{ fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:900, color:'#6EE7B7', letterSpacing:1 }}>EUROVISION ASIA</div>
-                <div style={{ fontSize:11, color:'rgba(110,231,183,.75)', marginTop:3, fontWeight:600 }}>10 National Finals · Aug – Nov 2026</div>
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:17, fontWeight:900, color:'#DB889C', letterSpacing:1 }}>EUROVISION ASIA</div>
+                <div style={{ fontSize:11, color:'rgba(219,136,156,.75)', marginTop:3, fontWeight:600 }}>10 National Finals · Aug – Nov 2026</div>
                 <div style={{ fontSize:10, color:'rgba(255,255,255,.55)', marginTop:2 }}>Bhutan · Philippines · South Korea · Nepal · Laos · Thailand · Bangladesh · Vietnam · Mongolia · Malaysia · Cambodia</div>
               </div>
             </div>
           </button>
 
-          <Card style={{ textAlign:'center', borderColor:'rgba(255,215,0,.2)', background:'rgba(255,215,0,.04)', marginTop:6 }}>
-            <div style={{ fontSize:12, color:'#9b8fc0', lineHeight:2 }}>
+          <Card style={{ textAlign:'center', borderColor:'rgba(193,199,107,.2)', background:'rgba(193,199,107,.04)', marginTop:6 }}>
+            <div style={{ fontSize:12, color:'#C9A8B2', lineHeight:2 }}>
               ✦ Each person scores independently<br />
               ✦ All scores sync in real time for everyone with the link<br />
               ✦ Your name is remembered next time you open the link
@@ -613,22 +613,22 @@ function AsiaHomePage({ onSelect, onBack }) {
       <Page>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16 }}>
           <BackBtn onClick={onBack} />
-          <div style={{ fontSize:12, color:'#6EE7B7', fontWeight:700 }}>Eurovision Asia</div>
+          <div style={{ fontSize:12, color:'#DB889C', fontWeight:700 }}>Eurovision Asia</div>
           <div style={{ width:60 }} />
         </div>
 
         <div style={{ textAlign:'center', paddingTop:16, paddingBottom:8 }}>
           <div style={{ fontSize:44, lineHeight:1 }}>🌏</div>
           <div style={{ marginTop:10 }}>
-            <div style={{ fontFamily:"'Cinzel',serif", fontSize:'clamp(17px,4.5vw,26px)', fontWeight:900, background:'linear-gradient(135deg,#6EE7B7,#34D399,#6EE7B7)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', textAlign:'center', marginBottom:4 }}>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:'clamp(17px,4.5vw,26px)', fontWeight:900, background:'linear-gradient(135deg,#DB889C,#CD5B76,#DB889C)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', textAlign:'center', marginBottom:4 }}>
               EUROVISION ASIA
             </div>
           </div>
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, color:'#6EE7B7', opacity:.7, letterSpacing:4, marginTop:4 }}>NATIONAL FINALS 2026</div>
+          <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:11, color:'#DB889C', opacity:.7, letterSpacing:4, marginTop:4 }}>NATIONAL FINALS 2026</div>
         </div>
-        <div style={{ height:1, background:'linear-gradient(90deg,transparent,#065f46,#6EE7B7,#065f46,transparent)', margin:'12px 0 20px' }} />
+        <div style={{ height:1, background:'linear-gradient(90deg,transparent,#5C2836,#DB889C,#5C2836,transparent)', margin:'12px 0 20px' }} />
 
-        <div style={{ textAlign:'center', fontSize:12, color:'#9b8fc0', letterSpacing:2, textTransform:'uppercase', marginBottom:16 }}>
+        <div style={{ textAlign:'center', fontSize:12, color:'#C9A8B2', letterSpacing:2, textTransform:'uppercase', marginBottom:16 }}>
           Select National Final
         </div>
 
@@ -649,12 +649,12 @@ function AsiaHomePage({ onSelect, onBack }) {
                   <span style={{ fontSize:26, flexShrink:0 }}>{nat.flag}</span>
                   <div style={{ flex:1, textAlign:'left' }}>
                     <div style={{ fontSize:14, fontWeight:800, color:'#fff', textShadow: hasArtists ? '0 1px 4px rgba(0,0,0,.4)' : 'none' }}>{nat.name}</div>
-                    <div style={{ fontSize:10, marginTop:2, color: hasArtists ? 'rgba(255,255,255,.8)' : '#6b5fa0', fontWeight:600 }}>
+                    <div style={{ fontSize:10, marginTop:2, color: hasArtists ? 'rgba(255,255,255,.8)' : '#8F6B78', fontWeight:600 }}>
                       {nat.show !== 'TBA' ? nat.show : 'Show TBA'}
                       {nat.date !== 'TBA' && nat.date !== '—' ? ` · ${nat.date}` : nat.date === 'TBA' ? ' · Date TBA' : ''}
                     </div>
                   </div>
-                  <div style={{ fontSize:11, fontWeight:700, color: hasArtists ? 'rgba(255,255,255,.85)' : '#6b5fa0', flexShrink:0 }}>
+                  <div style={{ fontSize:11, fontWeight:700, color: hasArtists ? 'rgba(255,255,255,.85)' : '#8F6B78', flexShrink:0 }}>
                     {hasArtists ? `${nat.participants.length} artists →` : 'Coming Soon'}
                   </div>
                 </div>
@@ -694,20 +694,20 @@ function NamePage({ semi, asiaShow, users, savedName, onSelect, onBack }) {
       <Page>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:20 }}>
           <BackBtn onClick={onBack} />
-          <div style={{ fontSize:12, color: isAsia ? '#6EE7B7' : '#9b8fc0', fontWeight: isAsia ? 700 : 400 }}>{eventLabel}</div>
+          <div style={{ fontSize:12, color: isAsia ? '#DB889C' : '#C9A8B2', fontWeight: isAsia ? 700 : 400 }}>{eventLabel}</div>
           <div style={{ width:60 }} />
         </div>
 
         <GoldTitle>WHO IS SCORING?</GoldTitle>
-        <div style={{ textAlign:'center', fontSize:12, color:'#9b8fc0', letterSpacing:2, marginBottom:20 }}>Select your name to continue</div>
+        <div style={{ textAlign:'center', fontSize:12, color:'#C9A8B2', letterSpacing:2, marginBottom:20 }}>Select your name to continue</div>
         <Divider />
 
         <Card style={{ marginTop:20 }}>
           {!newMode ? (
             <>
-              <div style={{ fontSize:11, color:'#9b8fc0', letterSpacing:1, marginBottom:10, fontWeight:700 }}>SELECT YOUR NAME:</div>
+              <div style={{ fontSize:11, color:'#C9A8B2', letterSpacing:1, marginBottom:10, fontWeight:700 }}>SELECT YOUR NAME:</div>
               <select value={dropVal} onChange={e => handleDrop(e.target.value)}
-                style={{ width:'100%', padding:'13px 14px', background:'rgba(93,63,211,.18)', border:'1px solid rgba(93,63,211,.5)', borderRadius:10, color: dropVal ? '#fff' : '#9b8fc0', fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:700, outline:'none', marginBottom:14, cursor:'pointer' }}>
+                style={{ width:'100%', padding:'13px 14px', background:'rgba(205,91,118,.18)', border:'1px solid rgba(205,91,118,.5)', borderRadius:10, color: dropVal ? '#fff' : '#C9A8B2', fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:700, outline:'none', marginBottom:14, cursor:'pointer' }}>
                 <option value="">— Select your name —</option>
                 {users.map(u => <option key={u} value={u}>{u}</option>)}
                 <option value="__NEW__">+ Add new name…</option>
@@ -716,14 +716,14 @@ function NamePage({ semi, asiaShow, users, savedName, onSelect, onBack }) {
             </>
           ) : (
             <>
-              <div style={{ fontSize:11, color:'#9b8fc0', letterSpacing:1, marginBottom:10, fontWeight:700 }}>ENTER YOUR NAME:</div>
+              <div style={{ fontSize:11, color:'#C9A8B2', letterSpacing:1, marginBottom:10, fontWeight:700 }}>ENTER YOUR NAME:</div>
               <input autoFocus value={newInput} onChange={e => setNewInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && go()}
                 placeholder="Type your name…"
                 style={{ width:'100%', padding:'12px 14px', background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.2)', borderRadius:10, color:'#fff', fontSize:15, fontFamily:"'Nunito',sans-serif", outline:'none', marginBottom:10 }} />
               <Btn gold onClick={go} disabled={!canGo} style={{ marginBottom:8 }}>Continue →</Btn>
               {users.length > 0 && (
                 <button type="button" onClick={() => { setNewMode(false); setNewInput(''); }}
-                  style={{ background:'none', border:'none', color:'#8b5cf6', fontSize:13, cursor:'pointer', fontFamily:"'Nunito',sans-serif", textDecoration:'underline' }}>
+                  style={{ background:'none', border:'none', color:'#DB889C', fontSize:13, cursor:'pointer', fontFamily:"'Nunito',sans-serif", textDecoration:'underline' }}>
                   ← Back to name list
                 </button>
               )}
@@ -748,17 +748,17 @@ function CountriesPage({ semi, asiaShow, myName, countries, data, sfKey, onCount
       <Page>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:6 }}>
           <BackBtn onClick={onBack} label="← Change name" />
-          <div style={{ fontSize:12, color:'#FFD700', fontWeight:800 }}>👤 {myName}</div>
+          <div style={{ fontSize:12, color:'#C1C76B', fontWeight:800 }}>👤 {myName}</div>
           <Btn gold small onClick={onResults}>📊 Results</Btn>
         </div>
 
         <GoldTitle>{title}</GoldTitle>
-        <div style={{ textAlign:'center', fontSize:12, color:'#9b8fc0', marginTop:4 }}>
+        <div style={{ textAlign:'center', fontSize:12, color:'#C9A8B2', marginTop:4 }}>
           Scored: {scoredCount} / {countries.length} {isAsia ? 'artists' : 'countries'}
         </div>
 
         <div style={{ height:4, background:'rgba(255,255,255,.1)', borderRadius:2, margin:'8px 0 12px', overflow:'hidden' }}>
-          <div style={{ height:'100%', width:`${countries.length ? (scoredCount / countries.length) * 100 : 0}%`, background: isAsia ? 'linear-gradient(90deg,#047857,#6EE7B7)' : 'linear-gradient(90deg,#5d3fd3,#FFD700)', transition:'width .5s' }} />
+          <div style={{ height:'100%', width:`${countries.length ? (scoredCount / countries.length) * 100 : 0}%`, background: isAsia ? 'linear-gradient(90deg,#8B3A4E,#DB889C)' : 'linear-gradient(90deg,#CD5B76,#C1C76B)', transition:'width .5s' }} />
         </div>
         <Divider />
 
@@ -771,7 +771,7 @@ function CountriesPage({ semi, asiaShow, myName, countries, data, sfKey, onCount
             return (
               <div key={c.code} className="fcrd" onClick={() => onCountry(idx)}
                 style={{ borderRadius:13, overflow:'hidden', position:'relative',
-                  border: scored ? '2px solid #5d3fd3' : c.autoQualifier ? '2px solid #FFD700' : '2px solid rgba(255,255,255,.1)',
+                  border: scored ? '2px solid #CD5B76' : c.autoQualifier ? '2px solid #C1C76B' : '2px solid rgba(255,255,255,.1)',
                 }}>
 
                 {/* Top section: flag emoji for countries, artist name text for Asia */}
@@ -786,20 +786,20 @@ function CountriesPage({ semi, asiaShow, myName, countries, data, sfKey, onCount
                 </div>
 
                 {/* Bottom section */}
-                <div style={{ background:'#0d0630', padding:'5px 5px 7px', textAlign:'center' }}>
+                <div style={{ background:'#241A22', padding:'5px 5px 7px', textAlign:'center' }}>
                   {isArt ? (
                     <div style={{ fontSize:8, fontWeight:600, color:'#bbb', lineHeight:1.3 }}>{c.song}</div>
                   ) : (
                     <>
                       <div style={{ fontSize:9, fontWeight:700, color:'#ddd', lineHeight:1.3 }}>{c.name}</div>
-                      {c.autoQualifier && <div style={{ fontSize:8, color:'#FFD700', marginTop:1, fontWeight:800 }}>★ AUTO</div>}
+                      {c.autoQualifier && <div style={{ fontSize:8, color:'#C1C76B', marginTop:1, fontWeight:800 }}>★ AUTO</div>}
                     </>
                   )}
-                  {scored && <div style={{ fontSize:9.5, color:'#8b5cf6', marginTop:1, fontWeight:800 }}>{total} pts</div>}
+                  {scored && <div style={{ fontSize:9.5, color:'#DB889C', marginTop:1, fontWeight:800 }}>{total} pts</div>}
                 </div>
 
                 {scored && (
-                  <div style={{ position:'absolute', top:3, right:3, background:'#5d3fd3', color:'#fff', fontSize:9, fontWeight:800, borderRadius:'50%', width:16, height:16, display:'flex', alignItems:'center', justifyContent:'center' }}>✓</div>
+                  <div style={{ position:'absolute', top:3, right:3, background:'#CD5B76', color:'#fff', fontSize:9, fontWeight:800, borderRadius:'50%', width:16, height:16, display:'flex', alignItems:'center', justifyContent:'center' }}>✓</div>
                 )}
               </div>
             );
@@ -825,7 +825,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
       <Page>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:6 }}>
           <BackBtn onClick={onBack} label="← All" />
-          <div style={{ fontSize:11, color:'#9b8fc0' }}>{cIdx + 1} / {countries.length} · 👤 {myName}</div>
+          <div style={{ fontSize:11, color:'#C9A8B2' }}>{cIdx + 1} / {countries.length} · 👤 {myName}</div>
           <Btn gold small onClick={onResults}>📊</Btn>
         </div>
 
@@ -836,7 +836,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
           <div style={{ height:118, background:makeGradient(c.colors), display:'flex', alignItems:'center', justifyContent:'center', position:'relative', padding: isArt ? '12px 20px' : 0 }}>
             {isArt ? (
               <div style={{ textAlign:'center' }}>
-                <div style={{ fontFamily:"'Cinzel',serif", fontSize:'clamp(15px,3.6vw,22px)', fontWeight:900, color:'#fff', textShadow:'0 2px 12px rgba(0,0,0,.6)', lineHeight:1.3 }}>
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:'clamp(15px,3.6vw,22px)', fontWeight:900, color:'#fff', textShadow:'0 2px 12px rgba(0,0,0,.6)', lineHeight:1.3 }}>
                   {c.name}
                 </div>
               </div>
@@ -844,7 +844,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
               <>
                 <div style={{ fontSize:56, filter:'drop-shadow(0 3px 10px rgba(0,0,0,.5))' }}>{c.flag}</div>
                 {c.autoQualifier && (
-                  <div style={{ position:'absolute', top:8, right:8, background:'#FFD700', color:'#1a0a00', fontSize:9, fontWeight:800, borderRadius:20, padding:'3px 9px', letterSpacing:1, animation:'glow 2s ease-in-out infinite' }}>
+                  <div style={{ position:'absolute', top:8, right:8, background:'#C1C76B', color:'#2A1D22', fontSize:9, fontWeight:800, borderRadius:20, padding:'3px 9px', letterSpacing:1, animation:'glow 2s ease-in-out infinite' }}>
                     ★ AUTOMATIC QUALIFIER
                   </div>
                 )}
@@ -853,17 +853,17 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
           </div>
 
           {/* Dark info strip */}
-          <div style={{ background:'#0d0630', padding:'11px 16px' }}>
+          <div style={{ background:'#241A22', padding:'11px 16px' }}>
             {isArt ? (
               <>
-                <div style={{ fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:700, color:'#6EE7B7' }}>{c.song}</div>
-                {c.subtitle && <div style={{ fontSize:13, color:'#c4a8ff', marginTop:2, fontStyle:'italic' }}>({c.subtitle})</div>}
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:17, fontWeight:700, color:'#DB889C' }}>{c.song}</div>
+                {c.subtitle && <div style={{ fontSize:13, color:'#DB889C', marginTop:2, fontStyle:'italic' }}>({c.subtitle})</div>}
               </>
             ) : (
               <>
-                <div style={{ fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:700, color:'#FFD700' }}>{c.name}</div>
-                <div style={{ fontSize:13, color:'#c4a8ff', marginTop:2 }}>{c.artist}</div>
-                <div style={{ fontSize:12, color:'#9b8fc0', fontStyle:'italic', marginTop:1 }}>"{c.song}"</div>
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:17, fontWeight:700, color:'#C1C76B' }}>{c.name}</div>
+                <div style={{ fontSize:13, color:'#DB889C', marginTop:2 }}>{c.artist}</div>
+                <div style={{ fontSize:12, color:'#C9A8B2', fontStyle:'italic', marginTop:1 }}>"{c.song}"</div>
               </>
             )}
           </div>
@@ -876,7 +876,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
             const selNum = sel !== null ? Number(sel) : null;
             return (
               <div key={cat.key} style={{ display:'flex', alignItems:'center', gap:6, paddingBottom: ci < CATS.length-1 ? 10 : 0, marginBottom: ci < CATS.length-1 ? 10 : 0, borderBottom: ci < CATS.length-1 ? '1px solid rgba(255,255,255,.07)' : 'none' }}>
-                <div style={{ width:104, flexShrink:0, fontSize:10, fontWeight:800, letterSpacing:.7, color: selNum !== null ? '#c4a8ff' : '#6b5fa0' }}>
+                <div style={{ width:104, flexShrink:0, fontSize:10, fontWeight:800, letterSpacing:.7, color: selNum !== null ? '#DB889C' : '#8F6B78' }}>
                   {cat.label}
                 </div>
                 <div style={{ display:'flex', flexWrap:'wrap', gap:4, flex:1 }}>
@@ -887,7 +887,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
                         onClick={() => onScore(c.code, cat.key, active ? null : pt)}
                         style={{
                           width:30, height:30, borderRadius:'50%', fontSize:11, fontWeight:800, fontFamily:"'Nunito',sans-serif",
-                          background: active ? (pt===12 ? 'linear-gradient(135deg,#b91c1c,#ef4444)' : pt===10 ? 'linear-gradient(135deg,#c2410c,#f97316)' : 'linear-gradient(135deg,#5d3fd3,#8b5cf6)') : 'rgba(255,255,255,.08)',
+                          background: active ? (pt===12 ? 'linear-gradient(135deg,#b91c1c,#ef4444)' : pt===10 ? 'linear-gradient(135deg,#c2410c,#f97316)' : 'linear-gradient(135deg,#CD5B76,#DB889C)') : 'rgba(255,255,255,.08)',
                           color: active ? '#fff' : '#777',
                           border: active ? '2px solid rgba(255,255,255,.3)' : '1px solid rgba(255,255,255,.12)',
                           transform: active ? 'scale(1.12)' : 'scale(1)',
@@ -904,9 +904,9 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
           })}
 
           {/* Total */}
-          <div style={{ marginTop:14, paddingTop:14, borderTop:'2px solid rgba(255,215,0,.3)', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-            <div style={{ fontFamily:"'Cinzel',serif", fontSize:13, color:'#FFD700', fontWeight:700, letterSpacing:2 }}>TOTAL SCORE</div>
-            <div style={{ fontFamily:"'Cinzel',serif", fontSize:30, fontWeight:900, background: total > 0 ? 'linear-gradient(135deg,#FFD700,#FFA500)' : 'none', WebkitBackgroundClip: total > 0 ? 'text' : 'none', WebkitTextFillColor: total > 0 ? 'transparent' : '#555', color: total > 0 ? 'transparent' : '#555' }}>
+          <div style={{ marginTop:14, paddingTop:14, borderTop:'2px solid rgba(193,199,107,.3)', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:13, color:'#C1C76B', fontWeight:700, letterSpacing:2 }}>TOTAL SCORE</div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:30, fontWeight:900, background: total > 0 ? 'linear-gradient(135deg,#C1C76B,#8F9450)' : 'none', WebkitBackgroundClip: total > 0 ? 'text' : 'none', WebkitTextFillColor: total > 0 ? 'transparent' : '#555', color: total > 0 ? 'transparent' : '#555' }}>
               {total}
             </div>
           </div>
@@ -914,7 +914,7 @@ function ScoringPage({ myName, countries, cIdx, setCIdx, data, sfKey, onScore, o
 
         {/* Prev / Next */}
         <div style={{ display:'flex', gap:10 }}>
-          <Btn onClick={() => setCIdx(cIdx-1)} disabled={cIdx===0} style={{ flex:1, background:'linear-gradient(135deg,#2d1b6e,#4c2889)', marginBottom:0 }}>← Previous</Btn>
+          <Btn onClick={() => setCIdx(cIdx-1)} disabled={cIdx===0} style={{ flex:1, background:'linear-gradient(135deg,#5C2836,#8B3A4E)', marginBottom:0 }}>← Previous</Btn>
           <Btn onClick={() => cIdx < countries.length-1 ? setCIdx(cIdx+1) : onBack()} style={{ flex:1, marginBottom:0 }}>
             {cIdx < countries.length-1 ? 'Next →' : 'Done ✓'}
           </Btn>
@@ -965,7 +965,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
         {/* Nav */}
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:8 }}>
           <BackBtn onClick={onBack} />
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:14, color: isAsia ? '#6EE7B7' : '#FFD700', fontWeight:700 }}>
+          <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:14, color: isAsia ? '#DB889C' : '#C1C76B', fontWeight:700 }}>
             {title} · RESULTS
           </div>
           <div style={{ width:60 }} />
@@ -973,9 +973,9 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
 
         {/* User selector */}
         <Card style={{ display:'flex', alignItems:'center', gap:10, flexWrap:'wrap', marginBottom:12 }}>
-          <div style={{ fontSize:11, color:'#9b8fc0', fontWeight:700, letterSpacing:1, flexShrink:0 }}>SHOWING SCORES FOR:</div>
+          <div style={{ fontSize:11, color:'#C9A8B2', fontWeight:700, letterSpacing:1, flexShrink:0 }}>SHOWING SCORES FOR:</div>
           <select value={resUser} onChange={e => setResUser(e.target.value)}
-            style={{ flex:1, minWidth:160, padding:'10px 12px', background:'rgba(93,63,211,.2)', border:'1px solid rgba(93,63,211,.45)', borderRadius:10, color:'#fff', fontSize:14, fontWeight:700, fontFamily:"'Nunito',sans-serif", outline:'none', cursor:'pointer' }}>
+            style={{ flex:1, minWidth:160, padding:'10px 12px', background:'rgba(205,91,118,.2)', border:'1px solid rgba(205,91,118,.45)', borderRadius:10, color:'#fff', fontSize:14, fontWeight:700, fontFamily:"'Nunito',sans-serif", outline:'none', cursor:'pointer' }}>
             {userOpts.map(o => <option key={o.val} value={o.val}>{o.label}</option>)}
           </select>
         </Card>
@@ -983,26 +983,26 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
         {/* Legend */}
         <div style={{ display:'flex', gap:10, marginBottom:12, flexWrap:'wrap' }}>
           {!noSeparator && <>
-            <LegendItem bg="rgba(93,63,211,.22)"  bd="1px solid rgba(93,63,211,.5)"  circle={false} label="Qualifies" />
-            <LegendItem bg="rgba(255,215,0,.07)"  bd="1px solid rgba(255,215,0,.3)"  circle={false} label="Auto-qualifier" />
+            <LegendItem bg="rgba(205,91,118,.22)"  bd="1px solid rgba(205,91,118,.5)"  circle={false} label="Qualifies" />
+            <LegendItem bg="rgba(193,199,107,.07)"  bd="1px solid rgba(193,199,107,.3)"  circle={false} label="Auto-qualifier" />
             <LegendItem bg="rgba(220,38,38,.1)"   bd="1px solid rgba(220,38,38,.28)" circle={false} label="Does not qualify" />
           </>}
           <LegendItem bg="rgba(185,28,28,.85)" bd="2px solid #ef4444" circle={true} label="12 pts (individual)" />
           <LegendItem bg="rgba(194,65,12,.85)" bd="2px solid #f97316" circle={true} label="10 pts (individual)" />
-          {!isIndividual && <div style={{ fontSize:11, color:'#9b8fc0', fontStyle:'italic' }}>(12/10 highlights on individual view only)</div>}
+          {!isIndividual && <div style={{ fontSize:11, color:'#C9A8B2', fontStyle:'italic' }}>(12/10 highlights on individual view only)</div>}
         </div>
 
         {/* Table */}
         <div style={{ overflowX:'auto', borderRadius:14, border:'1px solid rgba(255,255,255,.1)' }}>
           <table style={{ width:'100%', borderCollapse:'collapse', minWidth:600 }}>
             <thead>
-              <tr style={{ background:'rgba(93,63,211,.35)' }}>
-                <th style={{ padding:'9px 6px',  fontSize:10, color:'#9b8fc0', textAlign:'center' }}>#</th>
-                <th style={{ padding:'9px 10px', fontSize:10, color:'#9b8fc0', textAlign:'left'   }}>{isAsia ? 'ARTIST' : 'COUNTRY'}</th>
+              <tr style={{ background:'rgba(205,91,118,.35)' }}>
+                <th style={{ padding:'9px 6px',  fontSize:10, color:'#C9A8B2', textAlign:'center' }}>#</th>
+                <th style={{ padding:'9px 10px', fontSize:10, color:'#C9A8B2', textAlign:'left'   }}>{isAsia ? 'ARTIST' : 'COUNTRY'}</th>
                 {CATS.map(cat => (
-                  <th key={cat.key} style={{ padding:'9px 3px', fontSize:8, color:'#9b8fc0', textAlign:'center', whiteSpace:'nowrap' }}>{cat.label}</th>
+                  <th key={cat.key} style={{ padding:'9px 3px', fontSize:8, color:'#C9A8B2', textAlign:'center', whiteSpace:'nowrap' }}>{cat.label}</th>
                 ))}
-                <th style={{ padding:'9px 8px', fontSize:10, color: isAsia ? '#6EE7B7' : '#FFD700', textAlign:'center', fontFamily:"'Cinzel',serif" }}>TOTAL</th>
+                <th style={{ padding:'9px 8px', fontSize:10, color: isAsia ? '#DB889C' : '#C1C76B', textAlign:'center', fontFamily:"'Nunito',sans-serif" }}>TOTAL</th>
               </tr>
             </thead>
             <tbody>
@@ -1014,17 +1014,17 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
                 // Row styling
                 let rowBg, rowBd, rankDisplay, rankColor, totalColor;
                 if (noSeparator) {
-                  rowBg       = 'rgba(93,63,211,.07)';
-                  rowBd       = 'rgba(93,63,211,.15)';
+                  rowBg       = 'rgba(205,91,118,.07)';
+                  rowBd       = 'rgba(205,91,118,.15)';
                   rankDisplay = rowIdx + 1;
-                  rankColor   = isAsia ? '#6EE7B7' : '#8b5cf6';
-                  totalColor  = isAsia ? '#6EE7B7' : '#FFD700';
+                  rankColor   = isAsia ? '#DB889C' : '#DB889C';
+                  totalColor  = isAsia ? '#DB889C' : '#C1C76B';
                 } else {
-                  rowBg       = isAuto ? 'rgba(255,215,0,.07)'  : isQ ? 'rgba(93,63,211,.09)'  : 'rgba(220,38,38,.05)';
-                  rowBd       = isAuto ? 'rgba(255,215,0,.18)'  : isQ ? 'rgba(93,63,211,.17)'  : 'rgba(220,38,38,.12)';
+                  rowBg       = isAuto ? 'rgba(193,199,107,.07)'  : isQ ? 'rgba(205,91,118,.09)'  : 'rgba(220,38,38,.05)';
+                  rowBd       = isAuto ? 'rgba(193,199,107,.18)'  : isQ ? 'rgba(205,91,118,.17)'  : 'rgba(220,38,38,.12)';
                   rankDisplay = isAuto ? '★' : isQ ? compRanked.findIndex(x => x.code === c.code) + 1 : '—';
-                  rankColor   = isAuto ? '#FFD700' : isQ ? '#8b5cf6' : '#dc2626';
-                  totalColor  = isAuto ? '#FFD700' : isQ ? '#8b5cf6' : '#f87171';
+                  rankColor   = isAuto ? '#C1C76B' : isQ ? '#DB889C' : '#dc2626';
+                  totalColor  = isAuto ? '#C1C76B' : isQ ? '#DB889C' : '#f87171';
                 }
 
                 return (
@@ -1045,15 +1045,15 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
                             <span style={{ fontSize:18 }}>{c.flag}</span>
                           )}
                           <div>
-                            <div style={{ fontSize:11, fontWeight:700, color: isAuto ? '#FFD700' : '#fff' }}>
+                            <div style={{ fontSize:11, fontWeight:700, color: isAuto ? '#C1C76B' : '#fff' }}>
                               {c.name}
                             </div>
-                            <div style={{ fontSize:9, color:'#6b5fa0', marginTop:1 }}>
+                            <div style={{ fontSize:9, color:'#8F6B78', marginTop:1 }}>
                               {isArt ? c.song : c.artist}
                             </div>
                           </div>
                           {isAuto && (
-                            <span style={{ flexShrink:0, padding:'1px 7px', borderRadius:20, fontSize:8, fontWeight:800, background:'rgba(255,215,0,.15)', color:'#FFD700', border:'1px solid rgba(255,215,0,.3)' }}>AUTO</span>
+                            <span style={{ flexShrink:0, padding:'1px 7px', borderRadius:20, fontSize:8, fontWeight:800, background:'rgba(193,199,107,.15)', color:'#C1C76B', border:'1px solid rgba(193,199,107,.3)' }}>AUTO</span>
                           )}
                         </div>
                       </td>
@@ -1068,7 +1068,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
                               display:'inline-flex', alignItems:'center', justifyContent:'center',
                               minWidth:26, height:26, borderRadius:'50%', fontSize:11, fontWeight:800, padding:'0 3px',
                               background: is12 ? 'rgba(185,28,28,.9)' : is10 ? 'rgba(194,65,12,.9)' : 'transparent',
-                              color:      is12||is10 ? '#fff' : val > 0 ? '#c4a8ff' : '#555',
+                              color:      is12||is10 ? '#fff' : val > 0 ? '#DB889C' : '#555',
                               border:     is12 ? '2px solid #ef4444' : is10 ? '2px solid #f97316' : 'none',
                               boxShadow:  is12 ? '0 0 10px rgba(239,68,68,.5)' : is10 ? '0 0 8px rgba(249,115,22,.4)' : 'none',
                             }}>
@@ -1080,7 +1080,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
 
                       {/* Total */}
                       <td style={{ background:rowBg, textAlign:'center', padding:'8px 6px' }}>
-                        <span style={{ fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:900, color:totalColor }}>
+                        <span style={{ fontFamily:"'Nunito',sans-serif", fontSize:17, fontWeight:900, color:totalColor }}>
                           {c.total}
                         </span>
                       </td>
@@ -1106,7 +1106,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
         </div>
 
         {/* Delete user */}
-        <div style={{ height:1, background:'linear-gradient(90deg,transparent,#5d3fd3,transparent)', margin:'28px 0 16px' }} />
+        <div style={{ height:1, background:'linear-gradient(90deg,transparent,#CD5B76,transparent)', margin:'28px 0 16px' }} />
         <Card style={{ borderColor:'rgba(220,38,38,.22)', background:'rgba(220,38,38,.04)' }}>
           <div style={{ fontSize:11, color:'#f87171', fontWeight:800, letterSpacing:1, marginBottom:12 }}>
             ⚠ DELETE USER — remove test data before sharing the link
@@ -1128,7 +1128,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
       </Page>
 
       {toast && (
-        <div style={{ position:'fixed', bottom:24, right:16, background:'#1a1040', border:'1px solid #5d3fd3', color:'#fff', padding:'10px 18px', borderRadius:10, fontSize:14, animation:'toast .3s ease', zIndex:9999, boxShadow:'0 4px 24px rgba(0,0,0,.5)' }}>
+        <div style={{ position:'fixed', bottom:24, right:16, background:'#332530', border:'1px solid #CD5B76', color:'#fff', padding:'10px 18px', borderRadius:10, fontSize:14, animation:'toast .3s ease', zIndex:9999, boxShadow:'0 4px 24px rgba(0,0,0,.5)' }}>
           {toast}
         </div>
       )}
@@ -1141,7 +1141,7 @@ function ResultsPage({ semi, asiaShow, sfKey, countries, data, resUser, setResUs
 ══════════════════════════════════════════════════ */
 function LegendItem({ bg, bd, circle, label }) {
   return (
-    <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:11, color:'#9b8fc0' }}>
+    <div style={{ display:'flex', alignItems:'center', gap:5, fontSize:11, color:'#C9A8B2' }}>
       <div style={{ width:circle?14:12, height:circle?14:12, background:bg, border:bd, borderRadius:circle?'50%':3, flexShrink:0 }} />
       {label}
     </div>
