@@ -246,9 +246,32 @@ const ASIA_NATIONALS = [
       { code:'toctien_lovealways', name:'Toc Tien', song:'Love Always Wins', colors:['#DB2777','#FBCFE8'], isArtist:true },
     ],
   },
-  { id:'mongolia',    name:'Mongolia',    show:'TBA',                         date:'10 October 2026',         flag:'🇲🇳', colors:['#C4272F','#015197'], participants:[] },
+  {
+    id: 'mongolia', name: 'Mongolia', show: "Mongolia's Chosen One",
+    date: '10 October 2026', flag: '🇲🇳',
+    colors: ['#C4272F','#015197'],
+    participants: [
+      { code:'beck_song1', name:'Beck', song:'Song 1', colors:['#C4272F','#FCA5A5'], isArtist:true },
+      { code:'beck_song2', name:'Beck', song:'Song 2', colors:['#015197','#93C5FD'], isArtist:true },
+      { code:'beck_song3', name:'Beck', song:'Song 3', colors:['#EA580C','#FED7AA'], isArtist:true },
+      { code:'beck_song4', name:'Beck', song:'Song 4', colors:['#0D9488','#99F6E4'], isArtist:true },
+    ],
+  },
   { id:'malaysia',    name:'Malaysia',    show:'No national final — Aina Abdul internally selected (song TBA)', date:'—', flag:'🇲🇾', colors:['#CC0001','#003DA5'], participants:[] },
-  { id:'cambodia',    name:'Cambodia',    show:'TBA',                         date:'TBA',                     flag:'🇰🇭', colors:['#032EA1','#E00025'], participants:[] },
+  {
+    id: 'cambodia', name: 'Cambodia', show: 'TBA',
+    date: 'TBA', flag: '🇰🇭',
+    colors: ['#032EA1','#E00025'],
+    participants: [
+      { code:'goofy',    name:'Goofy',     song:'TBA', colors:['#032EA1','#93C5FD'], isArtist:true },
+      { code:'kesorrr',  name:'Kesorrr',   song:'TBA', colors:['#E00025','#FCA5A5'], isArtist:true },
+      { code:'mcpich',   name:'MC Pich',   song:'TBA', colors:['#7C3AED','#DDD6FE'], isArtist:true },
+      { code:'monetrey', name:'Monetrey',  song:'TBA', colors:['#0D9488','#99F6E4'], isArtist:true },
+      { code:'novdana',  name:'Nov Dana',  song:'TBA', colors:['#EA580C','#FED7AA'], isArtist:true },
+      { code:'samrocker', name:'Sam Rocker', song:'TBA', colors:['#1E3A5F','#60A5FA'], isArtist:true },
+      { code:'satiya',   name:'Satiya',    song:'TBA', colors:['#DB2777','#FBCFE8'], isArtist:true },
+    ],
+  },
 ];
 
 /* ══════════════════════════════════════════════════
