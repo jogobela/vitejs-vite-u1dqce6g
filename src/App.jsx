@@ -129,6 +129,24 @@ const FINAL = [
 ══════════════════════════════════════════════════ */
 const ASIA_NATIONALS = [
   {
+    id: 'grandfinal', name: 'Grand Final', show: 'Eurovision Asia Grand Final',
+    date: '14 November 2026', flag: '🌏',
+    colors: ['#CD5B76','#473846'],
+    participants: [
+      { code:'af_vn', name:'Vietnam',           artist:'Tóc Tiên',            song:'EM TIÊN',              flag:'🇻🇳', colors:['#DA251D','#FFCD00'] },
+      { code:'af_kh', name:'Cambodia',          artist:'Monetrey',            song:'I Let You Go',         flag:'🇰🇭', colors:['#032EA1','#E00025'] },
+      { code:'af_la', name:'Laos',              artist:'Thinla',              song:'BAE',                  flag:'🇱🇦', colors:['#CE1126','#003DA5'] },
+      { code:'af_mn', name:'Mongolia',          artist:'Beck',                song:'Chamguigeer (Without You)', flag:'🇲🇳', colors:['#C4272F','#015197'] },
+      { code:'af_bt', name:'Bhutan',            artist:'Nyendra',             song:'Lhayi Semo',           flag:'🇧🇹', colors:['#FF6B00','#FFD700'] },
+      { code:'af_ph', name:'Philippines',       artist:'CARMELLE',            song:'Sobra-Sobra',          flag:'🇵🇭', colors:['#0038A8','#CE1126'] },
+      { code:'af_bd', name:'Bangladesh',        artist:'Beatmosphere',        song:'Tumi Ele',             flag:'🇧🇩', colors:['#006A4E','#F42A41'] },
+      { code:'af_th', name:'Thailand',          artist:'MANG x DAOU',         song:'Aroma',                flag:'🇹🇭', colors:['#A51931','#002868'] },
+      { code:'af_kr', name:'Republic of Korea', artist:'JUNHEE',              song:'DEEP DIVE',            flag:'🇰🇷', colors:['#CD2E3A','#003478'] },
+      { code:'af_np', name:'Nepal',             artist:'Pratik Himal Rai',    song:'Ananta Maya',          flag:'🇳🇵', colors:['#003893','#DC143C'] },
+      { code:'af_my', name:'Malaysia',          artist:'Aina Abdul',          song:'Bluest Sky',           flag:'🇲🇾', colors:['#CC0001','#003DA5'] },
+    ],
+  },
+  {
     id: 'bhutan', name: 'Bhutan', show: 'Rhythm of Bhutan',
     date: '11 August 2026', flag: '🇧🇹',
     colors: ['#FF6B00','#FFD700'],
@@ -651,11 +669,39 @@ function AsiaHomePage({ onSelect, onBack }) {
         </div>
         <div style={{ height:1, background:'linear-gradient(90deg,transparent,#5C2836,#DB889C,#5C2836,transparent)', margin:'12px 0 20px' }} />
 
+        {/* Featured: Eurovision Asia Grand Final */}
+        {(() => {
+          const gf = ASIA_NATIONALS.find(n => n.id === 'grandfinal');
+          return (
+            <button type="button" className="ebtn" onClick={() => onSelect('grandfinal')}
+              style={{
+                display:'block', width:'100%', padding:'18px 18px', borderRadius:16, marginBottom:22,
+                background:'linear-gradient(135deg,#8F9450,#C1C76B,#A9AF5E)',
+                border:'2px solid rgba(193,199,107,.5)', boxShadow:'0 0 24px rgba(193,199,107,.2)',
+                fontFamily:"'Nunito',sans-serif", cursor:'pointer', textAlign:'left',
+              }}>
+              <div style={{ display:'flex', alignItems:'center', gap:14 }}>
+                <span style={{ fontSize:34, flexShrink:0 }}>⭐</span>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontSize:17, fontWeight:900, color:'#2A1D22', letterSpacing:1 }}>GRAND FINAL</div>
+                  <div style={{ fontSize:11, marginTop:3, color:'rgba(42,29,34,.8)', fontWeight:700 }}>
+                    Eurovision Asia · {gf.date} · {gf.participants.length} countries
+                  </div>
+                  <div style={{ fontSize:10, marginTop:3, color:'rgba(42,29,34,.65)', fontWeight:600 }}>
+                    {gf.participants.map(p => p.name).join(' · ')}
+                  </div>
+                </div>
+                <div style={{ fontSize:12, fontWeight:800, color:'#2A1D22', flexShrink:0 }}>Vote →</div>
+              </div>
+            </button>
+          );
+        })()}
+
         <div style={{ textAlign:'center', fontSize:12, color:'#C9A8B2', letterSpacing:2, textTransform:'uppercase', marginBottom:16 }}>
-          Select National Final
+          National Finals
         </div>
 
-        {ASIA_NATIONALS.map(nat => {
+        {ASIA_NATIONALS.filter(nat => nat.id !== 'grandfinal').map(nat => {
           const hasArtists = nat.participants.length > 0;
           return (
             <div key={nat.id} style={{ marginBottom:8 }}>
